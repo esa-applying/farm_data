@@ -20,8 +20,8 @@ Both endpoints are paginated using the GET parameter `page`. For example:
 ### How to run:
 
 1. `git clone [address] farm_data` 
-2. `cp env_sample .env` and set the variables on `.env` to match your PostgreSQL server
-3. `cd farm_data && npm install`
+2. `cd farm_data && npm install`
+3. `cp env_sample .env` and set the variables on `.env` to match your PostgreSQL server
 4. `bash start_server.sh`
    1. You will be prompted with a dialog to seed the database, on the first run answer `y`.
 5. Server listens to port 5000 or env variable `PORT`
@@ -34,4 +34,4 @@ Stuff I would have liked to include on the assignment:
   - proper statistics such as max, min with `from`, `to` as query parameters to specify datetime
   - more tables: `farms`, `farm_measurements` to make it easier to look for information
   - filtering by farm name
-- `jest` for simple endpoint tests because I'm reinventing the wheel by using raw SQL 
+- `jest` for simple endpoint tests because I'm reinventing the wheel by using raw SQL
