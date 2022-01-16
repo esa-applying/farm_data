@@ -1,9 +1,11 @@
 import fs from 'fs';
 import db from '../utilities/db.js'
+import validateEntry from "../utilities/validateEntry.js";
 
 
 await db.query('DROP TABLE IF EXISTS farm_data;')
 const text = "CREATE TABLE farm_data (\
+                    id serial,\
                     farm_name text,\
                     created_at timestamp,\
                     metric_type varchar(20),\
@@ -11,28 +13,6 @@ const text = "CREATE TABLE farm_data (\
 );"
 await db.query(text)
 
-
-const validateEntry = entry => {
-    if (entry.length !== 4)
-        return false
-
-    const [farmName, dateString, metricType, metricValue] = entry
-
-    if (!farmName.length || !dateString.length || !metricType.length || !metricValue.length) {
-        console.log('empty column on entry: ', entry)
-        return false
-    }
-    if (isNaN(metricValue)) {
-        console.log('invalid metric value on entry: ', entry)
-        return false
-    }
-    if (!Date.parse(dateString)) {
-        console.log('invalid datetime on entry: ', entry)
-        return false
-    }
-// TODO: add more detailed input validation
-    return true
-}
 
 const parseSeedFile = filePath => {
     const fileContent = fs.readFileSync(filePath).toString().split('\n')
