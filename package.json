@@ -5,12 +5,15 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "author": "ehalmkro",
   "license": "UNLICENSED",
   "dependencies": {
     "dotenv": "^12.0.4",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
     "pg": "^8.7.1"
   }
 }
